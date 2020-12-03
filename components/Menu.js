@@ -38,19 +38,22 @@ function menuMaker(menuItems){
    const siteMenu = document.createElement('div');
    const list = document.createElement('ul');
    const item = document.createElement('li');
+   
 
   siteMenu.appendChild(list);
-  list.appendChild(item);
+  // list.appendChild(item); this is used to create li items one by one
 
   siteMenu.classList.add("menu");
 
-  menuItems.forEach((elem) => {
-    list.appendChild(elem);
+  //this is the way to loop through the menuItems array and append each item to list
+  menuItems.forEach((elem?) => {
+    list.appendChild(item);
     
-  })
+  });
 
-  siteMenu.addEventListener(('click'), {
-
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener(('click'), {
+    siteMenu.classList.toggle(".menu--open")
   });
 
   return siteMenu;
