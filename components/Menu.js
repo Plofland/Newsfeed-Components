@@ -35,29 +35,33 @@ let menuItems = [
 const headerMenu = document.querySelector('.header');
 
 function menuMaker(menuItems){
-   const siteMenu = document.createElement('div');
-   const list = document.createElement('ul');
-   const item = document.createElement('li');
+  
+  const siteMenu = document.createElement('div');
+  const list = document.createElement('ul');
+  const menuButton = document.querySelector(".menu-button");
    
-
+  
+  menuButton.appendChild(siteMenu);
   siteMenu.appendChild(list);
-  // list.appendChild(item); this is used to create li items one by one
+
 
   siteMenu.classList.add("menu");
 
   //this is the way to loop through the menuItems array and append each item to list
-  menuItems.forEach((elem?) => {
+  menuItems.forEach((elem) => {
+    const item = document.createElement('li');
+    item.textContent = menuItems[elem]
     list.appendChild(item);
-    
   });
-
-  const menuButton = document.querySelector(".menu-button");
-  menuButton.addEventListener(('click'), {
-    siteMenu.classList.toggle(".menu--open")
+  
+  menuButton.addEventListener(('click'), (event) => {
+    siteMenu.classList.toggle("menu--open")
   });
-
+  
   return siteMenu;
 }
 
-const test = menuMaker(["item1", "item2", "item3"]);
-headerMenu.appendChild(test);
+// const test = menuMaker(["item1", "item2", "item3"]);
+// headerMenu.appendChild(test);
+headerMenu.appendChild(menuMaker(menuItems));
+// console.log(menuMaker(menuItems));
