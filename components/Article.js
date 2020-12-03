@@ -127,11 +127,12 @@ function articleMaker(data){
   const expandButton = document.createElement('span');
   
   article.appendChild(articleTitle);
+  article.appendChild(expandButton);
   article.appendChild(articleDate);
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
-  article.appendChild(expandButton);
+  
   
   article.classList.add("article","article-open");
   articleTitle.classList.add("articleTitle");
