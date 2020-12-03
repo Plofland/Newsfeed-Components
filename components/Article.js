@@ -127,20 +127,16 @@ function articleMaker(data){
   const expandButton = document.createElement('span');
   
   article.appendChild(articleTitle);
-  article.appendChild(expandButton);
-  article.appendChild(articleDate);
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
+  article.appendChild(articleDate);
+  article.appendChild(expandButton);
   
   
   article.classList.add("article","article-open");
-  articleTitle.classList.add("articleTitle");
   articleDate.classList.add("date");
-  p1.classList.add("para");
-  p2.classList.add("para");
-  p3.classList.add("para");
-  expandButton.classList.add("expandbutton");
+  expandButton.classList.add("expandButton");
 
   articleTitle.textContent = data.title;
   articleDate.textContent = data.date;
@@ -149,16 +145,13 @@ function articleMaker(data){
   p3.textContent = data.thirdParagraph;
   expandButton.textContent = "+";
   
-  expandButton.addEventListener('click', (event) => {
+  expandButton.addEventListener('click', () => {
     article.classList.toggle('article-open');
   });
 
   return article;
 }
 
-//TEST
-const test = articleMaker({title:"Title", date:"Nov. 20, 2020", firstParagraph:"writing", secondParagraph:"more writing", thirdParagraph:"some more writing"});
-articles.appendChild(test);
 
 //Loop through the object
 const elements = data.map((data) => {
